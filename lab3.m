@@ -32,5 +32,21 @@ plot(xx, abs(fnval(pn, xx)-fun(xx)), 'r-', xx, abs(fnval(pr, xx)-fun(xx)), 'b-')
 
 %%
 
+format short
+fun = @(x) 4/3*x.^4 - 4/3*x.^3 + x.^2/2;
+
+for h = [10 20 40]
+    x = 0:1/h:1;
+    y = fun(x);
+    xx = 0:1/(2*h):1;
+
+    pn = csape(x, y, 'variational');
+    pr = csape(x, y, 'complete', [0, 16/3 + 4 + 1]);
+    
+    the_H = 1/h
+    the_Y = y
+    thefuckingerror = abs(fnval(pn,xx) - fun(xx))
+    fprintf('NEXT FUCKING SECTION GOD DAMMIT\n');
+end
 
 
