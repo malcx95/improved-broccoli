@@ -23,8 +23,8 @@ function difference = test(fun, expected, msg, start_x, end_x)
         errors = [errors difference];
     end
 
-    for e = errors
-    end
+
+
     fprintf('%s: ', msg);
     fprintf('%.10f, ', errors);
     fprintf("\n");
