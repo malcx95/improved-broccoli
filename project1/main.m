@@ -33,10 +33,10 @@ end
 
 function din_mamma = arithmetic_complexity(fun, msg, start_x, end_x)
     result = [];
-    for step_amount = [1:3]
+    for step_amount = [1:10]
         tic;
         for runs = [1: 1000]
-            step_size = 1/(10 ^ step_amount) * (end_x - start_x);
+            step_size = 1/(2 ^ step_amount) * (end_x - start_x);
             x = [0: step_size: end_x];
             vals = fun(x);
             integrated = trapezoid(vals, step_size);
