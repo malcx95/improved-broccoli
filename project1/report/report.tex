@@ -51,8 +51,8 @@
     }
 \renewcommand*\contentsname{Innehållsförteckning}
 \begin{document}
-	\maketitle
-	\newpage
+\maketitle
+\newpage
 \tableofcontents
 \newpage
 
@@ -69,5 +69,23 @@ både noggrannhetsmässigt och beräkningskomplexitetsmässigt.
 Syftet med denna undersökning är att utvärdera trapetsmetoden för numerisk
 beräkning av integraler. Noggrannhetsordningen samt den aritmetiska
 komplexitetens 
+
+\subsection{Experimentbeskrivning}
+
+För att utvärdera noggranhetsordningen utvärderades ett antal integraler
+analytiskt. Sedan beräknades det numeriska värdet av samma integraler med
+trapetsmetoden och olika steglängder.
+
+% TODO: Bättre namn än delta x
+För att beräkna felet vid varje steglängd $\delta x$ beräknades differensen mellan de numeriskt
+bestämda värdena och de analytiskt bestämda värdena.
+
+% TODO: Skriv om hur vi får exponenten
+
+På ett liknande sätt beräknades metodens aritmetiska komplexitet. Tiden det tog att köra
+algoritmen vid olika steglängder bestämdes genom att utföra 1000 iterationer av beräkningen
+och mäta tiden det tog.
+
+
 
 \end{document}
