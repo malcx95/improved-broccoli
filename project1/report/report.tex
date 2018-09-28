@@ -50,6 +50,7 @@
     \texttt{frask812@student.liu.se}
     }
 \renewcommand*\contentsname{Innehållsförteckning}
+
 \begin{document}
 \maketitle
 \newpage
@@ -68,7 +69,19 @@ både noggrannhetsmässigt och beräkningskomplexitetsmässigt.
 \subsection{Syfte}
 Syftet med denna undersökning är att utvärdera trapetsmetoden för numerisk
 beräkning av integraler. Noggrannhetsordningen samt den aritmetiska
-komplexitetens 
+komplexiteten hos metoden ska utvärderas.
+
+\section{Teori}
+Trapetsregeln approximerar integralen genom att anpassa förstagradspolynom till
+funktionen som ska integreras, och beräkna arean under dessa. Detta kan
+beräknas med formeln
+
+\begin{equation}
+    \int_{x_0}^{x_n}f(x)dx \approx T(h) = \frac{h}{2}(f(x_0) +
+    2\sum_{k=1}^{n-1}f(x_k) + f(x_n))
+\end{equation}
+
+där $h$ är en steglängd.
 
 \subsection{Experimentbeskrivning}
 
