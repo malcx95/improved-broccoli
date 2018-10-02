@@ -1,10 +1,10 @@
 
-test(@(x) exp(x), exp(1) - 1, 'exp', 0, 1);
-test(@(x) x + 1, 3/2, '1-degree', 0, 1);
-test(@(x) x.^2 + 2.*x + 1, 7/3, '2-degree', 0, 1);
-test(@(x) x.^100, 1/101, '3-degree', 0, 1);
-test(@(x) 4./(1+x.^2), pi, 'atan shit', 0, 1);
-test(@(x) sin(x).^2, pi/2, 'periodic', 0, pi);
+calculate_errors(@(x) exp(x), exp(1) - 1, 'exp', 0, 1);
+calculate_errors(@(x) x + 1, 3/2, '1-degree', 0, 1);
+calculate_errors(@(x) x.^2 + 2.*x + 1, 7/3, '2-degree', 0, 1);
+calculate_errors(@(x) x.^100, 1/101, '3-degree', 0, 1);
+calculate_errors(@(x) 4./(1+x.^2), pi, 'atan shit', 0, 1);
+calculate_errors(@(x) sin(x).^2, pi/2, 'periodic', 0, pi);
 
 fprintf('\n\n\n');
 
@@ -12,7 +12,7 @@ arithmetic_complexity(@(x) exp(x), 'exp', 0, 1);
 arithmetic_complexity(@(x) x.^2 + 2.*x + 1, '2-degree', 0, 1);
 arithmetic_complexity(@(x) 4./(1+x.^2), 'atan shit', 0, 1);
 
-function difference = test(fun, expected, msg, start_x, end_x)
+function difference = calculate_errors(fun, expected, msg, start_x, end_x)
     errors = [];
     for step_amount = [1:5]
         step_size = 1/(10 ^ step_amount) * (end_x - start_x);
@@ -23,10 +23,14 @@ function difference = test(fun, expected, msg, start_x, end_x)
         errors = [errors difference];
     end
 
-
+    h_values = [];
+    for i = [2:length(errors)]
+        h_values = [h_values, errors(i - 1) / errors(i)];
+    end
 
     fprintf('%s: ', msg);
     fprintf('%.10f, ', errors);
+    fprintf('potens: %.2f, ', log10(mean(h_values)));
     fprintf("\n");
 end
 
