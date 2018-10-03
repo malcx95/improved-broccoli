@@ -14,6 +14,7 @@ arithmetic_complexity(@(x) 4./(1+x.^2), 'atan shit', 0, 1);
 
 function difference = calculate_errors(fun, expected, msg, start_x, end_x)
     errors = [];
+    result = [];
     for step_amount = [1:5]
         step_size = 1/(10 ^ step_amount) * (end_x - start_x);
         x = [0: step_size: end_x];
@@ -21,6 +22,7 @@ function difference = calculate_errors(fun, expected, msg, start_x, end_x)
         integrated = trapezoid(vals, step_size);
         difference = integrated - expected;
         errors = [errors difference];
+        result = [result integrated]
     end
 
     h_values = [];
