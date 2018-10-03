@@ -37,10 +37,10 @@ end
 
 function din_mamma = arithmetic_complexity(fun, msg, start_x, end_x)
     result = [];
-    for step_amount = [20:25]
+    step_range = (1./(2.^[20:25])).*(end_x - start_x);
+    for step_size = step_range
         tic;
         for runs = [1:10]
-            step_size = (1/(2 ^ step_amount)) * (end_x - start_x);
             x = [start_x: step_size: end_x];
             vals = fun(x);
             integrated = trapezoid(vals, step_size);
@@ -48,8 +48,10 @@ function din_mamma = arithmetic_complexity(fun, msg, start_x, end_x)
         result = [result toc];
     end
 
-
-    plot(result);
+    figure
+    plot([20:25], log2(result));
+    xlabel('Step size 1/2^x')
+    ylabel('log2(time)')
 
     h_values = [];
     for i = [2:length(result)]
