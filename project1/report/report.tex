@@ -89,25 +89,34 @@ där $h$ är en steglängd.
 För att utvärdera noggranhetsordningen utvärderades ett antal integraler
 analytiskt. Sedan beräknades det numeriska värdet av samma integraler med
 trapetsmetoden och olika steglängder. För beräkningen av noggranhetsordning
-användes steglängder från $\frac{1}{10}$ till $\frac{1}{10^5}.
+användes steglängderna $h_i = \frac{1}{10^i}, i \in {1,2, \dots 5}.
 
 % TODO: Bättre namn än delta x
-För att beräkna felet vid varje steglängd $\delta x$ beräknades differensen mellan de numeriskt
+För att beräkna felet vid varje steglängd $\Delta x$ beräknades differensen mellan de numeriskt
 bestämda värdena och de analytiskt bestämda värdena.
 
-För att sedan beräkna noggranhetsordningen användes ekvation \ref{eq:orderofaccuracy}
+För att sedan beräkna noggranhetsordningen användes ekvation \ref{eq:orderofaccuracy} där $R_t$
+är felet som funktion av steglängden och $c$ är en konstant
 
 \begin{equation}
     \label{eq:orderofaccuracy}
     \frac{| R_t(h_{i+1})|}{| R_t(h_{i})|}  = \frac{ch_{i+1}^p}{ch_{i}^p} = 10^p
-    \Leftrightarrow p = \log_{10}\left( \frac{h_{i+1}}{h_i} \right)
+    \Leftrightarrow p \approx \log_{10}\left( \frac{h_{i+1}}{h_i} \right)
 \end{equation}
 
 % TODO: Skriv om hur vi får exponenten
 
 På ett liknande sätt beräknades metodens aritmetiska komplexitet. Tiden det tog att köra
 algoritmen vid olika steglängder bestämdes genom att utföra 100 iterationer av beräkningen
-och mäta tiden det tog.
+och mäta tiden det tog. Precis som för noggranhetsordninen kan aritmetiska komplexiteten
+beräknas med ekvation \ref{eq:arithmetic_complexity} där $T$ betecknar exekveringstiden
+vid en viss steglängd.
+
+\begin{equation}
+    \label{eq:arithmetic_complexity}
+    \frac{| T(h_{i+1})|}{| T_t(h_{i})|}  = \frac{ch_{i+1}^p}{ch_{i}^p} = 2^p
+    \Leftrightarrow p \approx \log_{2}\left( \frac{h_{i+1}}{h_i} \right)
+\end{equation}
 
 \section{Resultat}
 
@@ -134,5 +143,11 @@ och mäta tiden det tog.
     \caption{The results of the test of arithmetic complexity}
     \end{tabular}
 \end{table}
+
+
+\section{Diskussion}
+
+De erhållna resultaten stämmer mestadels överens med vad som förväntades. För de integraler
+där felet inte är 0 
 
 \end{document}
