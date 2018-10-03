@@ -29,7 +29,7 @@ function difference = calculate_errors(fun, expected, msg, start_x, end_x)
     end
 
     fprintf('%s: ', msg);
-    fprintf('%.10f, ', errors);
+    fprintf('%.3d, ', errors);
     fprintf('potens: %.2f, ', log10(mean(h_values)));
     fprintf("\n");
 end
@@ -48,19 +48,18 @@ function nothing = arithmetic_complexity(fun, msg, start_x, end_x)
         result = [result toc];
     end
 
-    figure
-    plot([20:25], log2(result));
-    xlabel('Step size 1/2^x')
-    ylabel('log2(time)')
+    % figure
+    % plot([20:25], log2(result));
+    % xlabel('Step size 1/2^x')
+    % ylabel('log2(time)')
 
     h_values = [];
     for i = [2:length(result)]
         h_values = [h_values, result(i) / result(i - 1)];
     end
-    h_values
 
     fprintf('%s: ', msg);
-    fprintf('%.10f, ', result);
+    fprintf('%.3d, ', result);
     fprintf('potens: %.2f, ', log2(mean(h_values)));
     fprintf("\n");
 end

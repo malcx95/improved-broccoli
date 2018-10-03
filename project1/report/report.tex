@@ -77,7 +77,7 @@ funktionen som ska integreras, och beräkna arean under dessa. Detta kan
 beräknas med formeln
 
 \begin{equation}
-    \int_{x_0}^{x_n}f(x)dx \approx T(h) = \frac{h}{2}(f(x_0) +
+    \int_{x_0}^{x_n}f(x)dx \approx T(hAritmetisk komplexitet) +
     2\sum_{k=1}^{n-1}f(x_k) + f(x_n))
 \end{equation}
 
@@ -90,10 +90,19 @@ För att utvärdera noggranhetsordningen utvärderades ett antal integraler
 analytiskt. Sedan beräknades det numeriska värdet av samma integraler med
 trapetsmetoden och olika steglängder. För beräkningen av noggranhetsordning
 användes steglängderna $h_i = \frac{1}{10^i}, i \in {1,2, \dots 5}$.
+<<<<<<< Updated upstream
 Felet vid varje steglängd $\Delta x$ beräknades sedan som differensen mellan de numeriskt
 bestämda värdena och de analytiskt bestämda värdena.  Noggranhetsordningen
 kunde sedan bestämmas genom Ekvation \ref{eq:orderofaccuracy}, där $R_t$
 är felet som funktion av steglängden och $c$ är en konstant.
+=======
+
+För att beräkna felet vid varje steglängd $h_i$ beräknades differensen mellan de numeriskt
+bestämda värdena och de analytiskt bestämda värdena.
+
+För att sedan beräkna noggranhetsordningen användes ekvation \ref{eq:orderofaccuracy} där $R_t$
+är felet som funktion av steglängden och $c$ är en konstant
+>>>>>>> Stashed changes
 
 \begin{equation}
     \label{eq:orderofaccuracy}
@@ -101,6 +110,7 @@ kunde sedan bestämmas genom Ekvation \ref{eq:orderofaccuracy}, där $R_t$
     \Leftrightarrow p \approx \log_{10}\left( \frac{h_{i+1}}{h_i} \right)
 \end{equation}
 
+<<<<<<< Updated upstream
 Följande funktioner användes för evaluering av noggranhetsordningen:
 
 \begin{itemize}
@@ -122,6 +132,13 @@ algoritmen vid olika steglängder bestämdes genom att utföra 100 iterationer a
 och mäta tiden det tog. Precis som för noggranhetsordninen kan aritmetiska komplexiteten
 beräknas med Ekvation \ref{eq:arithmetic_complexity} där $T$ betecknar exekveringstiden
 vid en viss steglängd.
+=======
+På ett liknande sätt beräknades metodens aritmetiska komplexitet. Tiden det tog att köra
+algoritmen vid olika steglängder bestämdes genom att utföra 100 iterationer av beräkningen
+och mäta tiden det tog. Precis som för noggranhetsordninen kan aritmetiska komplexiteten
+beräknas med ekvation \ref{eq:arithmetic_complexity} där $T$ betecknar exekveringstiden
+vid en viss steglängd. Här användes $h_i = \frac{1}{2^i}, i \in {20,21, \dots 25}$
+>>>>>>> Stashed changes
 
 \begin{equation}
     \label{eq:arithmetic_complexity}
@@ -139,21 +156,51 @@ Följande funktioner användes för evaluering av noggranhetsordningen:
 
 \section{Resultat}
 
-\subsection{Something something error and shit}
+
+exp
+potens: 2.00
+
+1-degree
+potens: Inf
+
+
+2-degree
+potens: 2.00
+
+
+3-degree
+potens: 1.94
+
+
+atan shit
+potens: 2.00
+
+
+periodic
+potens: -0.25
+
+
+
+
+\subsection{Noggranhetsordning}
+
 \begin{table}[h]
-    \begin{tabular}{c | c | c | c | c | c}
-        $\mathbf{e^x}$ & $\mathbf{x + 1}$ & $\mathbf{x^2 + 2x + 1}$ &
-        $\mathbf{x^{100}}$ & $\mathbf{\frac{4}{1 + x^2}}$ & $\mathbf{\sin^2(x)}$ \\ \hline
-    0.0014316629 & 0.0000000000 & 0.0016666667 & 0.0401016661 & -0.0016666647 & 0.0000000000 \\
-    0.0000143190 & -0.000000000 & 0.0000166667 & 0.0008201506 & -0.0000166667 & 0.0000000000 \\
-    0.0000001432 & 0.0000000000 & 0.0000001667 & 0.0000083320 & -0.0000001667 & 0.0000000000 \\
-    0.0000000014 & -0.000000000 & 0.0000000017 & 0.0000000833 & -0.0000000017 & 0.0000000000 \\
-    0.0000000000 & 0.0000000000 & 0.0000000000 & 0.0000000008 & -0.0000000000 & 0.0000000000 \\
+    \begin{tabular}{l | r | r | r | r | r | r}
+        $\mathbf{1/h}$ & $\mathbf{e^x}$ & $\mathbf{x + 1}$ & $\mathbf{x^2 + 2x + 1}$ & $\mathbf{x^{100}}$ & $\mathbf{\frac{4}{1 + x^2}}$ & $\mathbf{\sin^2(x)}$ \\ \hline
+        $10^1$         & $1.432 \cdot 10^{-03}$ & $0                    $  & $1.667 \cdot 10^{3}  $ & $4.010 \cdot 10^{-2} $ & $-1.667 \cdot 10^{-03}$ & $2.220 \cdot 10^{-16}$ \\
+        $10^2$         & $1.432 \cdot 10^{-05}$ & $-2.220 \cdot 10^{-16}$  & $1.667 \cdot 10^{-5} $ & $8.202 \cdot 10^{-4} $ & $-1.667 \cdot 10^{-05}$ & $4.441 \cdot 10^{-16}$ \\
+        $10^3$         & $1.432 \cdot 10^{-07}$ & $0                    $  & $1.667 \cdot 10^{7}  $ & $8.332 \cdot 10^{-6} $ & $-1.667 \cdot 10^{-07}$ & $6.661 \cdot 10^{-16}$ \\
+        $10^4$         & $1.432 \cdot 10^{-09}$ & $-4.441 \cdot 10^{-16}$  & $1.667 \cdot 10^{-9} $ & $8.333 \cdot 10^{-8} $ & $-1.667 \cdot 10^{-09}$ & $7.772 \cdot 10^{-15}$ \\
+        $10^5$         & $1.432 \cdot 10^{-11}$ & $2.220e \cdot 10^{-16}$  & $1.666 \cdot 10^{-11}$ & $8.333 \cdot 10^{-10}$ & $-1.668 \cdot 10^{-11}$ & $7.994 \cdot 10^{-15}$ \\ \hline
+        \textbf{p}     & 2.00                   & Inf                      & 2.00                   & 1.94                   & 2.00                    & -0.25 \\
     \end{tabular}
-    \caption{I have no idea what the fuck this is}
+    \caption{Fel vid för olika funktioner vid olika steglängder}
+    \label{tab:errors}
 \end{table}
 
-\subsection{Arithmetic complexity}
+Tabell \ref{tab:errors}
+
+\subsection{Aritmetisk komplexitet}
 
 \begin{table}[h]
     \begin{tabular}{l | l | l}
@@ -166,7 +213,13 @@ Följande funktioner användes för evaluering av noggranhetsordningen:
 
 \section{Diskussion}
 
-De erhållna resultaten stämmer mestadels överens med vad som förväntades. För de integraler
-där felet inte är 0 
+De erhållna resultaten stämmer mestadels överens med vad som förväntades. De integraler
+som inte har fel ger noggranhetsordning som ungefär är lika med 2 vilket stämmer överrens
+med teorin.
+
+% TODO: Utveckla och eller omformulera
+Även aritmetiska komplexiteten stämmer väl överrens med det teorin som säger att
+den borde vara 1. Detta stämmer dock inte för större steglängder där overhead från
+for-loopar ger ett större relativt bidrag.
 
 \end{document}
