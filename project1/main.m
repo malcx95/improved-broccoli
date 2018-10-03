@@ -37,10 +37,10 @@ end
 
 function din_mamma = arithmetic_complexity(fun, msg, start_x, end_x)
     result = [];
-    for step_amount = [5:10]
+    for step_amount = [20:25]
         tic;
-        for runs = [1: 1000000]
-            step_size = 1/(2 ^ step_amount) * (end_x - start_x);
+        for runs = [1:10]
+            step_size = (1/(2 ^ step_amount)) * (end_x - start_x);
             x = [start_x: step_size: end_x];
             vals = fun(x);
             integrated = trapezoid(vals, step_size);
@@ -59,6 +59,6 @@ function din_mamma = arithmetic_complexity(fun, msg, start_x, end_x)
 
     fprintf('%s: ', msg);
     fprintf('%.10f, ', result);
-    fprintf('potens: %.2f, ', log2(h_values));
+    fprintf('potens: %.2f, ', log2(mean(h_values)));
     fprintf("\n");
 end
