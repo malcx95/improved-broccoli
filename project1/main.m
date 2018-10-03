@@ -35,7 +35,7 @@ function difference = calculate_errors(fun, expected, msg, start_x, end_x)
 end
 
 
-function din_mamma = arithmetic_complexity(fun, msg, start_x, end_x)
+function nothing = arithmetic_complexity(fun, msg, start_x, end_x)
     result = [];
     step_range = (1./(2.^[20:25])).*(end_x - start_x);
     for step_size = step_range

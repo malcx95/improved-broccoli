@@ -89,14 +89,11 @@ där $h$ är en steglängd.
 För att utvärdera noggranhetsordningen utvärderades ett antal integraler
 analytiskt. Sedan beräknades det numeriska värdet av samma integraler med
 trapetsmetoden och olika steglängder. För beräkningen av noggranhetsordning
-användes steglängderna $h_i = \frac{1}{10^i}, i \in {1,2, \dots 5}.
-
-% TODO: Bättre namn än delta x
-För att beräkna felet vid varje steglängd $\Delta x$ beräknades differensen mellan de numeriskt
-bestämda värdena och de analytiskt bestämda värdena.
-
-För att sedan beräkna noggranhetsordningen användes ekvation \ref{eq:orderofaccuracy} där $R_t$
-är felet som funktion av steglängden och $c$ är en konstant
+användes steglängderna $h_i = \frac{1}{10^i}, i \in {1,2, \dots 5}$.
+Felet vid varje steglängd $\Delta x$ beräknades sedan som differensen mellan de numeriskt
+bestämda värdena och de analytiskt bestämda värdena.  Noggranhetsordningen
+kunde sedan bestämmas genom Ekvation \ref{eq:orderofaccuracy}, där $R_t$
+är felet som funktion av steglängden och $c$ är en konstant.
 
 \begin{equation}
     \label{eq:orderofaccuracy}
@@ -104,12 +101,26 @@ För att sedan beräkna noggranhetsordningen användes ekvation \ref{eq:orderofa
     \Leftrightarrow p \approx \log_{10}\left( \frac{h_{i+1}}{h_i} \right)
 \end{equation}
 
+Följande funktioner användes för evaluering av noggranhetsordningen:
+
+\begin{itemize}
+    \item Exponentialfunktionen $e^x$ med primitiv funktion $e^x$
+    \item Förstagradspolynomet $x + 1$ med primitiv funktion $\frac{x^2}{2} + x$
+    \item Andragradspolynomet $x^2 + 2x + 1$ med primitiv funktion
+        $\frac{x^3}{3} + x^2 + x$
+    \item 100-gradspolynomet $x^{100}$ med primitiv funktion
+        $\frac{x^{101}}{101}$
+    \item Funktionen $\frac{4}{1 + x^2}$ med primitiv funktion $4\arctan(x)$
+    \item Den periodiska funktionen $\sin^2(x)$ med primitiv funktion
+        $\frac{1}{4}\sin(2x)$
+\end{itemize}
+
 % TODO: Skriv om hur vi får exponenten
 
 På ett liknande sätt beräknades metodens aritmetiska komplexitet. Tiden det tog att köra
 algoritmen vid olika steglängder bestämdes genom att utföra 100 iterationer av beräkningen
 och mäta tiden det tog. Precis som för noggranhetsordninen kan aritmetiska komplexiteten
-beräknas med ekvation \ref{eq:arithmetic_complexity} där $T$ betecknar exekveringstiden
+beräknas med Ekvation \ref{eq:arithmetic_complexity} där $T$ betecknar exekveringstiden
 vid en viss steglängd.
 
 \begin{equation}
@@ -118,13 +129,21 @@ vid en viss steglängd.
     \Leftrightarrow p \approx \log_{2}\left( \frac{h_{i+1}}{h_i} \right)
 \end{equation}
 
+Följande funktioner användes för evaluering av noggranhetsordningen:
+
+\begin{itemize}
+    \item Exponentialfunktionen $e^x$
+    \item Andragradspolynomet $x^2 + 2x + 1$
+    \item Funktionen $\frac{4}{1 + x^2}$
+\end{itemize}
+
 \section{Resultat}
 
 \subsection{Something something error and shit}
 \begin{table}[h]
-    \begin{tabular}{l | l | l | l | l | l}
-        \textbf{Exp} & \textbf{1-degree} & \textbf{2-degree} &
-        \textbf{3-degree} & \textbf{atan-shit} & \textbf{periodic} \\ \hline
+    \begin{tabular}{c | c | c | c | c | c}
+        $\mathbf{e^x}$ & $\mathbf{x + 1}$ & $\mathbf{x^2 + 2x + 1}$ &
+        $\mathbf{x^{100}}$ & $\mathbf{\frac{4}{1 + x^2}}$ & $\mathbf{\sin^2(x)}$ \\ \hline
     0.0014316629 & 0.0000000000 & 0.0016666667 & 0.0401016661 & -0.0016666647 & 0.0000000000 \\
     0.0000143190 & -0.000000000 & 0.0000166667 & 0.0008201506 & -0.0000166667 & 0.0000000000 \\
     0.0000001432 & 0.0000000000 & 0.0000001667 & 0.0000083320 & -0.0000001667 & 0.0000000000 \\
