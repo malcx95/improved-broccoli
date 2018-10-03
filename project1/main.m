@@ -22,7 +22,7 @@ function difference = calculate_errors(fun, expected, msg, start_x, end_x)
         integrated = trapezoid(vals, step_size);
         difference = integrated - expected;
         errors = [errors difference];
-        result = [result integrated]
+        result = [result integrated];
     end
 
     h_values = [];
@@ -33,6 +33,9 @@ function difference = calculate_errors(fun, expected, msg, start_x, end_x)
     fprintf('%s: ', msg);
     fprintf('%.3d, ', errors);
     fprintf('potens: %.2f, ', log10(mean(h_values)));
+    fprintf("\n");
+    fprintf('    values:')
+    fprintf('%.3d   ', result)
     fprintf("\n");
 end
 

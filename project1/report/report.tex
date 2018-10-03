@@ -141,9 +141,34 @@ Följande funktioner användes för evaluering av noggranhetsordningen:
 
 \section{Resultat}
 
-I detta avsnitt presenteras resultatet av undersökningen.
+I detta avsnitt presenteras resultatet av undersökningen. Tabell \ref{tab:values}
+ger värdet av testintegralerna uträknat med olika steglängd. I samma tabell ger också
+det analytiskt beräknade värdet av varje integral. Tabell \ref{tab:errors}
+ger felet vid olika stegängder.
+
+I Tabell \ref{tab:errors} ges också den resulterande uppsakttningen av noggrannhetsordningen
+$p$.
+
+
 
 \subsection{Noggranhetsordning}
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{l | r | r | r | r | r | r}
+        $\mathbf{1/h}$      & $\mathbf{e^x}$ & $\mathbf{x + 1}$ & $\mathbf{x^2 + 2x + 1}$ & $\mathbf{x^{100}}$     & $\mathbf{\frac{4}{1 + x^2}}$ & $\mathbf{\sin^2(x)}$ \\ \hline
+        $10^1$              & $1.720$        & $1.500$          & $2.335$                 & $5.000 \cdot 10^{-02}$ & $3.140$                      & $1.571$ \\
+        $10^2$              & $1.718$        & $1.500$          & $2.333$                 & $1.072 \cdot 10^{-02}$ & $3.142$                      & $1.571$ \\
+        $10^3$              & $1.718$        & $1.500$          & $2.333$                 & $9.909 \cdot 10^{-03}$ & $3.142$                      & $1.571$ \\
+        $10^4$              & $1.718$        & $1.500$          & $2.333$                 & $9.901 \cdot 10^{-03}$ & $3.142$                      & $1.571$ \\
+        $10^5$              & $1.718$        & $1.500$          & $2.333$                 & $9.901 \cdot 10^{-03}$ & $3.142$                      & $1.571$ \\ \hline
+        \textbf{Analytiskt} & $e-1$          & $\frac{3}{2}$    & $\frac{7}{3}$           & $\frac{1}{101}$        & $\pi$                        & $\frac{\pi}{2}$ \\
+    \end{tabular}
+    \caption{Värdet av de olika integralerna uträknat med olika steglängd}
+    \label{tab:values}
+\end{table}
+
+
 
 \begin{table}[h]
     \begin{tabular}{l | r | r | r | r | r | r}
@@ -159,7 +184,6 @@ I detta avsnitt presenteras resultatet av undersökningen.
     \label{tab:errors}
 \end{table}
 
-Tabell \ref{tab:errors}
 
 \subsection{Aritmetisk komplexitet}
 
