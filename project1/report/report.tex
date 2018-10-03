@@ -90,19 +90,11 @@ För att utvärdera noggranhetsordningen utvärderades ett antal integraler
 analytiskt. Sedan beräknades det numeriska värdet av samma integraler med
 trapetsmetoden och olika steglängder. För beräkningen av noggranhetsordning
 användes steglängderna $h_i = \frac{1}{10^i}, i \in {1,2, \dots 5}$.
-<<<<<<< Updated upstream
-Felet vid varje steglängd $\Delta x$ beräknades sedan som differensen mellan de numeriskt
-bestämda värdena och de analytiskt bestämda värdena.  Noggranhetsordningen
-kunde sedan bestämmas genom Ekvation \ref{eq:orderofaccuracy}, där $R_t$
-är felet som funktion av steglängden och $c$ är en konstant.
-=======
-
 För att beräkna felet vid varje steglängd $h_i$ beräknades differensen mellan de numeriskt
 bestämda värdena och de analytiskt bestämda värdena.
 
 För att sedan beräkna noggranhetsordningen användes ekvation \ref{eq:orderofaccuracy} där $R_t$
 är felet som funktion av steglängden och $c$ är en konstant
->>>>>>> Stashed changes
 
 \begin{equation}
     \label{eq:orderofaccuracy}
@@ -110,7 +102,6 @@ För att sedan beräkna noggranhetsordningen användes ekvation \ref{eq:orderofa
     \Leftrightarrow p \approx \log_{10}\left( \frac{h_{i+1}}{h_i} \right)
 \end{equation}
 
-<<<<<<< Updated upstream
 Följande funktioner användes för evaluering av noggranhetsordningen:
 
 \begin{itemize}
@@ -131,14 +122,7 @@ På ett liknande sätt beräknades metodens aritmetiska komplexitet. Tiden det t
 algoritmen vid olika steglängder bestämdes genom att utföra 100 iterationer av beräkningen
 och mäta tiden det tog. Precis som för noggranhetsordninen kan aritmetiska komplexiteten
 beräknas med Ekvation \ref{eq:arithmetic_complexity} där $T$ betecknar exekveringstiden
-vid en viss steglängd.
-=======
-På ett liknande sätt beräknades metodens aritmetiska komplexitet. Tiden det tog att köra
-algoritmen vid olika steglängder bestämdes genom att utföra 100 iterationer av beräkningen
-och mäta tiden det tog. Precis som för noggranhetsordninen kan aritmetiska komplexiteten
-beräknas med ekvation \ref{eq:arithmetic_complexity} där $T$ betecknar exekveringstiden
 vid en viss steglängd. Här användes $h_i = \frac{1}{2^i}, i \in {20,21, \dots 25}$
->>>>>>> Stashed changes
 
 \begin{equation}
     \label{eq:arithmetic_complexity}
@@ -201,6 +185,8 @@ potens: -0.25
 Tabell \ref{tab:errors}
 
 \subsection{Aritmetisk komplexitet}
+
+
 
 \begin{table}[h]
     \begin{tabular}{l | l | l}
