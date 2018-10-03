@@ -161,14 +161,19 @@ Tabell \ref{tab:errors}
 
 \subsection{Aritmetisk komplexitet}
 
-
-
 \begin{table}[h]
-    \begin{tabular}{l | l | l}
-        \textbf{Exp} & \textbf{2-degree} & \textbf{atan-shit} \\ \hline
+    \centering
+    \begin{tabular}{l | r | r | r}
+        $\mathbf{1/h}$ & $\mathbf{e^x}$         & $\mathbf{x^2 + 2x + 1}$ &  $\mathbf{\frac{4}{1 + x^2}}$ & \\ \hline
+        $2^{20}$       & $ 1.377 \cdot 10^{1} $ & $ 6.240 \cdot 10^{2} $  & $ 6.049 \cdot 10^{2}          $ \\
+        $2^{20}$       & $ 2.640 \cdot 10^{1} $ & $ 1.521 \cdot 10^{1} $  & $ 1.674 \cdot 10^{1}          $ \\
+        $2^{20}$       & $ 6.366 \cdot 10^{1} $ & $ 4.482 \cdot 10^{1} $  & $ 4.611 \cdot 10^{1}          $ \\
+        $2^{20}$       & $ 1.437 \cdot 10^{1} $ & $ 1.150              $  & $ 1.148                       $ \\
+        $2^{20}$       & $ 2.853 \cdot 10^{1} $ & $ 2.357              $  & $ 2.519                       $ \\
+        $2^{20}$       & $ 5.614 \cdot 10^{1} $ & $ 4.530              $  & $ 4.967                       $ \\
 
-    \caption{The results of the test of arithmetic complexity}
     \end{tabular}
+    \caption{The results of the test of arithmetic complexity}
 \end{table}
 
 
