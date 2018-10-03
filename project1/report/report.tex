@@ -50,6 +50,7 @@
     \texttt{frask812@student.liu.se}
     }
 \renewcommand*\contentsname{Innehållsförteckning}
+\renewcommand*\tablename{Tabell}
 
 \begin{document}
 \maketitle
@@ -105,22 +106,22 @@ För att sedan beräkna noggranhetsordningen användes ekvation \ref{eq:orderofa
 Följande funktioner användes för evaluering av noggranhetsordningen:
 
 \begin{itemize}
-    \item Exponentialfunktionen $e^x$ med primitiv funktion $e^x$
-    \item Förstagradspolynomet $x + 1$ med primitiv funktion $\frac{x^2}{2} + x$
+    \item Exponentialfunktionen $e^x$ med primitiv funktion $e^x$, under intervallet $[0, 1]$
+    \item Förstagradspolynomet $x + 1$ med primitiv funktion $\frac{x^2}{2} + x$, under intervallet $[0, 1]$
     \item Andragradspolynomet $x^2 + 2x + 1$ med primitiv funktion
-        $\frac{x^3}{3} + x^2 + x$
+        $\frac{x^3}{3} + x^2 + x$, under intervallet $[0, 1]$
     \item 100-gradspolynomet $x^{100}$ med primitiv funktion
-        $\frac{x^{101}}{101}$
-    \item Funktionen $\frac{4}{1 + x^2}$ med primitiv funktion $4\arctan(x)$
+        $\frac{x^{101}}{101}$, under intervallet $[0, 1]$
+    \item Funktionen $\frac{4}{1 + x^2}$ med primitiv funktion $4\arctan(x)$, under intervallet $[0, 1]$
     \item Den periodiska funktionen $\sin^2(x)$ med primitiv funktion
-        $\frac{1}{4}\sin(2x)$
+        $\frac{1}{4}\sin(2x)$, under intervallet $[0, \pi]$
 \end{itemize}
 
 % TODO: Skriv om hur vi får exponenten
 
 På ett liknande sätt beräknades metodens aritmetiska komplexitet. Tiden det tog att köra
 algoritmen vid olika steglängder bestämdes genom att utföra 100 iterationer av beräkningen
-och mäta tiden det tog. Precis som för noggranhetsordninen kan aritmetiska komplexiteten
+och mäta tiden det tog. Precis som för noggranhetsordningen kan aritmetiska komplexiteten
 beräknas med Ekvation \ref{eq:arithmetic_complexity} där $T$ betecknar exekveringstiden
 vid en viss steglängd. Här användes $h_i = \frac{1}{2^i}, i \in {20,21, \dots 25}$
 
