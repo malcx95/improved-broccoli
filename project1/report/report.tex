@@ -28,6 +28,7 @@
 	    keywordstyle=\color[rgb]{0,0,1},
 	    commentstyle=\color[rgb]{0.133,0.545,0.133},
 	    stringstyle=\color[rgb]{0.627,0.126,0.941},
+        language=matlab
 }
 
 %Set page size
@@ -67,7 +68,7 @@ fallet, vilket innebär att approximationer måste göras. En av dessa metoder
 Denna studie siktar på att utvärdera hur väl denna metod presterar,
 både noggrannhetsmässigt och beräkningskomplexitetsmässigt.
 
-\subsection{Syfte}
+\subsection{Uppgift}
 Syftet med denna undersökning är att utvärdera trapetsmetoden för numerisk
 beräkning av integraler. Noggrannhetsordningen samt den aritmetiska
 komplexiteten hos metoden ska utvärderas.
@@ -84,7 +85,7 @@ beräknas med formeln
 
 där $h$ är en steglängd.
 
-\subsection{Experimentbeskrivning}
+\subsection{Lösning}
 
 % Utvärderades utvärderades utvärderades
 För att utvärdera noggranhetsordningen utvärderades ett antal integraler
@@ -117,8 +118,6 @@ Följande funktioner användes för evaluering av noggranhetsordningen:
         $\frac{1}{4}\sin(2x)$, under intervallet $[0, \pi]$
 \end{itemize}
 
-% TODO: Skriv om hur vi får exponenten
-
 På ett liknande sätt beräknades metodens aritmetiska komplexitet. Tiden det tog att köra
 algoritmen vid olika steglängder bestämdes genom att utföra 100 iterationer av beräkningen
 och mäta tiden det tog. Precis som för noggranhetsordningen kan aritmetiska komplexiteten
@@ -138,6 +137,17 @@ Följande funktioner användes för evaluering av noggranhetsordningen:
     \item Andragradspolynomet $x^2 + 2x + 1$
     \item Funktionen $\frac{4}{1 + x^2}$
 \end{itemize}
+
+\section{MATLAB-cod}
+
+Följande kodlistning innehåller funktionen trapezoid som integrerar med trapetsmetoden.
+
+\lstinputlisting[matlab]{../trapezoid.m}
+
+I Bilaga \ref{sub:testcode} listas även koden som användes för evaluering av
+felet vid integration samt den aritmetiska komplexiteten av algoritmen.
+
+
 
 \section{Resultat}
 
@@ -162,7 +172,7 @@ $p$.
         $10^3$              & $1.718$        & $1.500$          & $2.333$                 & $9.909 \cdot 10^{-03}$ & $3.142$                      & $1.571$ \\
         $10^4$              & $1.718$        & $1.500$          & $2.333$                 & $9.901 \cdot 10^{-03}$ & $3.142$                      & $1.571$ \\
         $10^5$              & $1.718$        & $1.500$          & $2.333$                 & $9.901 \cdot 10^{-03}$ & $3.142$                      & $1.571$ \\ \hline
-        \textbf{Analytiskt} & $e-1$          & $\frac{3}{2}$    & $\frac{7}{3}$           & $\frac{1}{101}$        & $\pi$                        & $\frac{\pi}{2}$ \\
+        \textbf{Analytiskt} & $e-1$          & $\frac{3}{2}$    & $\frac{7}{3}$           & $\frac{1}{101}$        & $\pi$                        & $\frac{\pi}{2}$
     \end{tabular}
     \caption{Värdet av de olika integralerna uträknat med olika steglängd}
     \label{tab:values}
@@ -190,13 +200,13 @@ $p$.
 \begin{table}[h]
     \centering
     \begin{tabular}{l | r | r | r}
-        $\mathbf{1/h}$ & $\mathbf{e^x}$         & $\mathbf{x^2 + 2x + 1}$ &  $\mathbf{\frac{4}{1 + x^2}}$ & \\ \hline
-        $2^{20}$       & $ 1.377 \cdot 10^{1} $ & $ 6.240 \cdot 10^{2} $  & $ 6.049 \cdot 10^{2}          $ \\
-        $2^{20}$       & $ 2.640 \cdot 10^{1} $ & $ 1.521 \cdot 10^{1} $  & $ 1.674 \cdot 10^{1}          $ \\
-        $2^{20}$       & $ 6.366 \cdot 10^{1} $ & $ 4.482 \cdot 10^{1} $  & $ 4.611 \cdot 10^{1}          $ \\
-        $2^{20}$       & $ 1.437 \cdot 10^{1} $ & $ 1.150              $  & $ 1.148                       $ \\
-        $2^{20}$       & $ 2.853 \cdot 10^{1} $ & $ 2.357              $  & $ 2.519                       $ \\
-        $2^{20}$       & $ 5.614 \cdot 10^{1} $ & $ 4.530              $  & $ 4.967                       $ \\
+        $\mathbf{1/h}$ & $\mathbf{e^x}$         & $\mathbf{x^2 + 2x + 1}$ & $\mathbf{\frac{4}{1 + x^2}}$ \\ \hline
+        $2^{20}$       & $ 1.377 \cdot 10^{1} $ & $ 6.240 \cdot 10^{2} $  & $ 6.049 \cdot 10^{2}       $ \\
+        $2^{20}$       & $ 2.640 \cdot 10^{1} $ & $ 1.521 \cdot 10^{1} $  & $ 1.674 \cdot 10^{1}       $ \\
+        $2^{20}$       & $ 6.366 \cdot 10^{1} $ & $ 4.482 \cdot 10^{1} $  & $ 4.611 \cdot 10^{1}       $ \\
+        $2^{20}$       & $ 1.437 \cdot 10^{1} $ & $ 1.150              $  & $ 1.148                    $ \\
+        $2^{20}$       & $ 2.853 \cdot 10^{1} $ & $ 2.357              $  & $ 2.519                    $ \\
+        $2^{20}$       & $ 5.614 \cdot 10^{1} $ & $ 4.530              $  & $ 4.967                    $ \\
 
     \end{tabular}
     \caption{The results of the test of arithmetic complexity}
@@ -214,4 +224,11 @@ med teorin.
 den borde vara 1. Detta stämmer dock inte för större steglängder där overhead från
 for-loopar ger ett större relativt bidrag.
 
+
+\appendix
+\section{Bilagor}
+
+\subsection{MATLAB-kod för beräkning av fel och aritmetisk komplexitet}
+\label{sub:testcode}
+\lstinputlisting[matlab]{../main.m}
 \end{document}
