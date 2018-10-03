@@ -85,18 +85,28 @@ där $h$ är en steglängd.
 
 \subsection{Experimentbeskrivning}
 
+% Utvärderades utvärderades utvärderades
 För att utvärdera noggranhetsordningen utvärderades ett antal integraler
 analytiskt. Sedan beräknades det numeriska värdet av samma integraler med
-trapetsmetoden och olika steglängder.
+trapetsmetoden och olika steglängder. För beräkningen av noggranhetsordning
+användes steglängder från $\frac{1}{10}$ till $\frac{1}{10^5}.
 
 % TODO: Bättre namn än delta x
 För att beräkna felet vid varje steglängd $\delta x$ beräknades differensen mellan de numeriskt
 bestämda värdena och de analytiskt bestämda värdena.
 
+För att sedan beräkna noggranhetsordningen användes ekvation \ref{eq:orderofaccuracy}
+
+\begin{equation}
+    \label{eq:orderofaccuracy}
+    \frac{| R_t(h_{i+1})|}{| R_t(h_{i})|}  = \frac{ch_{i+1}^p}{ch_{i}^p} = 10^p
+    \Leftrightarrow p = \log_{10}\left( \frac{h_{i+1}}{h_i} \right)
+\end{equation}
+
 % TODO: Skriv om hur vi får exponenten
 
 På ett liknande sätt beräknades metodens aritmetiska komplexitet. Tiden det tog att köra
-algoritmen vid olika steglängder bestämdes genom att utföra 1000 iterationer av beräkningen
+algoritmen vid olika steglängder bestämdes genom att utföra 100 iterationer av beräkningen
 och mäta tiden det tog.
 
 \section{Resultat}
