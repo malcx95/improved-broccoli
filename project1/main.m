@@ -2,15 +2,15 @@
 calculate_errors(@(x) exp(x), exp(1) - 1, 'exp', 0, 1);
 calculate_errors(@(x) x + 1, 3/2, '1-degree', 0, 1);
 calculate_errors(@(x) x.^2 + 2.*x + 1, 7/3, '2-degree', 0, 1);
-calculate_errors(@(x) x.^100, 1/101, '3-degree', 0, 1);
-calculate_errors(@(x) 4./(1+x.^2), pi, 'atan shit', 0, 1);
+calculate_errors(@(x) x.^100, 1/101, '100-degree', 0, 1);
+calculate_errors(@(x) 4./(1+x.^2), pi, 'atan', 0, 1);
 calculate_errors(@(x) sin(x).^2, pi/2, 'periodic', 0, pi);
 
 fprintf('\n\n\n');
 
 arithmetic_complexity(@(x) exp(x), 'exp', 0, 1);
 arithmetic_complexity(@(x) x.^2 + 2.*x + 1, '2-degree', 0, 1);
-arithmetic_complexity(@(x) 4./(1+x.^2), 'atan shit', 0, 1);
+arithmetic_complexity(@(x) 4./(1+x.^2), 'atan', 0, 1);
 
 function difference = calculate_errors(fun, expected, msg, start_x, end_x)
     errors = [];

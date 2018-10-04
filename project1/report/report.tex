@@ -79,16 +79,17 @@ funktionen som ska integreras, och beräkna arean under dessa. Detta kan
 beräknas med formeln
 
 \begin{equation}
-    \int_{x_0}^{x_n}f(x)dx \approx T(h) +
+    \int_{x_0}^{x_n}f(x)dx \approx T(h) = \frac{h}{2}(f(x_0) +
     2\sum_{k=1}^{n-1}f(x_k) + f(x_n))
 \end{equation}
 
-där $h$ är en steglängd.
+där $h$ är en steglängd, enligt $h = x_n - x_{n-1}$. Denna formel bör
+ha aritmetisk komplexitet $O(h)$, och noggranhetsordning $p=2$.
 
 \subsection{Lösning}
 
 % Utvärderades utvärderades utvärderades
-För att utvärdera noggranhetsordningen utvärderades ett antal integraler
+För att utvärdera noggranhetsordningen beräknades ett antal integraler
 analytiskt. Sedan beräknades det numeriska värdet av samma integraler med
 trapetsmetoden och olika steglängder. För beräkningen av noggranhetsordning
 användes steglängderna $h_i = \frac{1}{10^i}, i \in {1,2, \dots 5}$.
@@ -102,7 +103,7 @@ För att sedan beräkna noggranhetsordningen användes Ekvation
 \begin{equation}
     \label{eq:orderofaccuracy}
     \frac{| R_t(h_{i+1})|}{| R_t(h_{i})|}  = \frac{ch_{i+1}^p}{ch_{i}^p} = 10^p
-    \Leftrightarrow p \approx \log_{10}\left( \frac{h_{i+1}}{h_i} \right)
+    \Leftrightarrow p \approx \log_{10}\left( \frac{| R_t(h_{i+1})|}{| R_t(h_{i})|} \right)
 \end{equation}
 
 Följande funktioner användes för evaluering av noggranhetsordningen:
@@ -123,12 +124,13 @@ På ett liknande sätt beräknades metodens aritmetiska komplexitet. Tiden det t
 algoritmen vid olika steglängder bestämdes genom att utföra 100 iterationer av beräkningen
 och mäta tiden det tog. Precis som för noggranhetsordningen kan aritmetiska komplexiteten
 beräknas med Ekvation \ref{eq:arithmetic_complexity} där $T$ betecknar exekveringstiden
-vid en viss steglängd. Här användes $h_i = \frac{1}{2^i}, i \in {20,21, \dots 25}$
+vid en viss steglängd. Här användes $h_i = \frac{1}{2^i}, i \in {20,21, \dots
+25}$.
 
 \begin{equation}
     \label{eq:arithmetic_complexity}
     \frac{| T(h_{i+1})|}{| T_t(h_{i})|}  = \frac{ch_{i+1}^p}{ch_{i}^p} = 2^p
-    \Leftrightarrow p \approx \log_{2}\left( \frac{h_{i+1}}{h_i} \right)
+    \Leftrightarrow p \approx \log_{2}\left( \frac{| T(h_{i+1})|}{| T_t(h_{i})|} \right)
 \end{equation}
 
 Följande funktioner användes för evaluering av noggranhetsordningen:
@@ -152,17 +154,18 @@ felet vid integration samt den aritmetiska komplexiteten av algoritmen.
 
 \section{Resultat}
 
-I detta avsnitt presenteras resultatet av undersökningen. Tabell \ref{tab:values}
-ger värdet av testintegralerna uträknat med olika steglängd. I samma tabell ger också
-det analytiskt beräknade värdet av varje integral. Tabell \ref{tab:errors}
-ger felet vid olika stegängder.
-
-I Tabell \ref{tab:errors} ges också den resulterande uppsakttningen av noggrannhetsordningen
-$p$.
-
-
+I detta avsnitt presenteras resultatet av undersökningen.
 
 \subsection{Noggranhetsordning}
+
+Tabell \ref{tab:values}
+ger värdet av testintegralerna uträknat med olika steglängd. I samma tabell ger också
+det analytiskt beräknade värdet av varje integral. Tabell \ref{tab:errors}
+ger felet vid olika steglängder.
+
+I Tabell \ref{tab:errors} ges också den resulterande uppskattningen av noggrannhetsordningen
+$p$.
+
 
 \begin{table}[h]
     \centering
@@ -191,39 +194,49 @@ $p$.
         $10^5$         & $1.432 \cdot 10^{-11}$ & $2.220e \cdot 10^{-16}$  & $1.666 \cdot 10^{-11}$ & $8.333 \cdot 10^{-10}$ & $-1.668 \cdot 10^{-11}$ & $7.994 \cdot 10^{-15}$ \\ \hline
         \textbf{p}     & 2.00                   & Inf                      & 2.00                   & 1.94                   & 2.00                    & -0.25 \\
     \end{tabular}
-    \caption{Fel vid för olika funktioner vid olika steglängder}
+    \caption{Fel vid för olika funktioner vid olika steglängder, samt potensen $p$}
     \label{tab:errors}
 \end{table}
 
 
 \subsection{Aritmetisk komplexitet}
 
+I Tabell \ref{tab:ar} presenteras exekveringstiderna för funktionerna med olika
+steglängder, samt dess beräknade aritmetiska komplexitet.
+
 \begin{table}[h]
     \centering
     \begin{tabular}{l | r | r | r}
         $\mathbf{1/h}$ & $\mathbf{e^x}$         & $\mathbf{x^2 + 2x + 1}$ & $\mathbf{\frac{4}{1 + x^2}}$ \\ \hline
-        $2^{20}$       & $ 1.377 \cdot 10^{1} $ & $ 6.240 \cdot 10^{2} $  & $ 6.049 \cdot 10^{2}       $ \\
-        $2^{20}$       & $ 2.640 \cdot 10^{1} $ & $ 1.521 \cdot 10^{1} $  & $ 1.674 \cdot 10^{1}       $ \\
-        $2^{20}$       & $ 6.366 \cdot 10^{1} $ & $ 4.482 \cdot 10^{1} $  & $ 4.611 \cdot 10^{1}       $ \\
-        $2^{20}$       & $ 1.437 \cdot 10^{1} $ & $ 1.150              $  & $ 1.148                    $ \\
-        $2^{20}$       & $ 2.853 \cdot 10^{1} $ & $ 2.357              $  & $ 2.519                    $ \\
-        $2^{20}$       & $ 5.614 \cdot 10^{1} $ & $ 4.530              $  & $ 4.967                    $ \\
+        $2^{20}$       & $ 1.377 \cdot 10^{-1} $s & $ 6.240 \cdot 10^{-2} $s  & $ 6.049 \cdot 10^{-2}       $s \\
+        $2^{21}$       & $ 2.640 \cdot 10^{-1} $s & $ 1.521 \cdot 10^{-1} $s  & $ 1.674 \cdot 10^{-1}       $s \\
+        $2^{22}$       & $ 6.366 \cdot 10^{-1} $s & $ 4.482 \cdot 10^{-1} $s  & $ 4.611 \cdot 10^{-1}       $s \\
+        $2^{23}$       & $ 1.437 \cdot 10^{-1} $s & $ 1.150              $s  & $ 1.148                    $s \\
+        $2^{24}$       & $ 2.853 \cdot 10^{-1} $s & $ 2.357              $s  & $ 2.519                    $s \\
+        $2^{25}$       & $ 5.614 \cdot 10^{-1} $s & $ 4.530              $s  & $ 4.967                    $s \\ \hline
+        \textbf{p}     & 1.11                   & 1.20                      & 1.13  \\
 
     \end{tabular}
-    \caption{The results of the test of arithmetic complexity}
+    \label{tab:ar}
+    \caption{Tid i sekunder för testerna av aritmetisk komplexitet, samt
+    potensen $p$}
 \end{table}
 
 
 \section{Diskussion}
 
-De erhållna resultaten stämmer mestadels överens med vad som förväntades. De integraler
-som inte har fel ger noggranhetsordning som ungefär är lika med 2 vilket stämmer överens
-med teorin.
+De erhållna resultaten stämmer mestadels överens med vad som förväntades. De
+flesta av de experimentellt beräknade noggranhetsordningarna $p$ var runt 2,
+vilket stämmer överens med teorin. I fallet med förstagradspolynomet och den
+periodiska funktionen blev det dock oändligt respektive -0.25, vilket beror
+på att dessa gav inte särskilt stora fel vid integrationen, vilket orsakar
+numeriska problem vid beräkningen av noggranhetsordningen.
 
 % TODO: Utveckla och eller omformulera
-Även aritmetiska komplexiteten stämmer väl överrens med det teorin som säger att
-den borde vara 1. Detta stämmer dock inte för större steglängder där overhead från
-for-loopar ger ett större relativt bidrag.
+Även den aritmetiska komplexiteten stämmer väl överrens med det teorin, som säger att
+den borde vara 1. Detta är mer tydligt med korta steglängder, då
+for-looparna tar en obetydlig tid att köra förhållande till integrationerna,
+vilket är varför mycket korta steglängder har använts här.
 
 
 \section*{Bilagor}
