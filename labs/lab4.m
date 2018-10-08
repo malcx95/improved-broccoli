@@ -26,9 +26,9 @@
 
 % 3.2
 
- t0 = 0;
- tn = 500;
- v0 = [-1, 0.001, 0]';
+t0 = 0;
+tn = 500;
+v0 = [-1, 0.001, 0]';
 
 % for h = [1.5, 2.1, 2.24, 2.26]
 %     x0 = 0;
@@ -42,29 +42,29 @@
 
 tn = 100;
 h = 0.2;
-full = myeuler(@odefun, t0, tn, v0, h);
-while 1
-     h = h/2;
-     y0 = 1;
-
-     half = myeuler(@odefun, t0, tn, v0, h);
-
-     if(abs(full - half) < 10^-5) 
-         disp(h);
-         disp(half);
-         disp(full - half);
-         break
-     end
-
-     full = half;
-     disp("din mamma")
-end
+% full = myeuler(@odefun, t0, tn, v0, h);
+% while 1
+%      h = h/2;
+%      y0 = 1;
+% 
+%      half = myeuler(@odefun, t0, tn, v0, h);
+% 
+%      if (abs(full - half) < 10^-5)
+%          disp(h);
+%          disp(half);
+%          disp(full - half);
+%          break
+%      end
+% 
+%      full = half;
+%      disp('din mamma')
+% end
 
 
 
 for Ki = [0.01, 0.05, 0.125]
-    figure(Ki * 10000)
-    [t,v] = ode23(@(x,y) odefun_ki(Ki, x, y), [t0, tn], v0);
+    %figure(Ki * 10000)
+    [t,v] = ode23(@odefun, [t0, tn], v0);
     disp(t(end))
 
     disp(v(end))
