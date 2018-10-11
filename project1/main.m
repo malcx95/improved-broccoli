@@ -4,6 +4,7 @@ calculate_errors(@(x) x + 1, 3/2, '1-degree', 0, 1);
 calculate_errors(@(x) x.^2 + 2.*x + 1, 7/3, '2-degree', 0, 1);
 calculate_errors(@(x) x.^100, 1/101, '100-degree', 0, 1);
 calculate_errors(@(x) 4./(1+x.^2), pi, 'atan', 0, 1);
+calculate_errors(@(x) sqrt(x), 2/3, 'sqrt', 0, 1);
 calculate_errors(@(x) sin(x).^2, pi/2, 'periodic', 0, pi);
 
 fprintf('\n\n\n');
