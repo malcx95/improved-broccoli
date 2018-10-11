@@ -99,7 +99,7 @@ bestämda värdena och de analytiskt bestämda värdena.
 
 För att sedan beräkna noggranhetsordningen användes Ekvation
 \ref{eq:orderofaccuracy}, där $R_t$
-är felet som funktion av steglängden och $c$ är en konstant.
+är trunkeringsfelet som funktion av steglängden och $c$ är en konstant.
 
 \begin{equation}
     \label{eq:orderofaccuracy}
@@ -245,10 +245,23 @@ nolldivision vid beräkningen av noggranhetsordningen, vilket orsakar de opålit
 noggranhetsordningarna.
 
 Resultatet vid integrering av $\sqrt x$ är intressant. Felen var något större än för
-de andra funtionerna, och gav $p = 1.49$ istället för 2. Detta
-skulle kunna bero på att derivatan av $\sqrt x$ är odefinierad för $x = 0$, vilket
-leder till fel i uppskattningen av lutningen vid den första "trapetsen". I vilket fall
-tyder detta på att denna metod är mindre lämpad för integration av kvadratrötter.
+de andra funtionerna, och gav $p = 1.49$ istället för 2. Detta skulle kunna
+bero på att derivatan och därför andraderivatan (som är $-\frac{1}{4x^{3/2}}$)
+ej är definierad för $x=0$. För att trunkeringsfelet $R_t$ ska existera måste
+andraderivatan existera och vara kontinuerlig under detta intervall, då det
+definieras som
+
+$$
+    R_t = -\frac{h^3}{12}\sum_if^{\prime\prime}(x_i).
+$$
+
+Detta betyder att det totala trunkeringsfelet är tekniskt sett inte definierat
+för intervallet [0, 1], och att det beräknade felet inte blir 2.
+
+% Detta
+% skulle kunna bero på att derivatan av $\sqrt x$ är odefinierad för $x = 0$, vilket
+% leder till fel i uppskattningen av lutningen vid den första "trapetsen". I vilket fall
+% tyder detta på att denna metod är mindre lämpad för integration av kvadratrötter.
 
 Även den aritmetiska komplexiteten stämmer väl överrens med det teorin, som säger att
 den borde vara 1. Detta är mer tydligt med korta steglängder, då
