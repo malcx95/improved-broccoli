@@ -1,0 +1,10 @@
+\contentsline {section}{\numberline {1}Introduktion}{2}
+\contentsline {subsection}{\numberline {1.1}Uppgift}{2}
+\contentsline {section}{\numberline {2}Teori}{2}
+\contentsline {subsection}{\numberline {2.1}L\IeC {\"o}sning}{2}
+\contentsline {section}{\numberline {3}MATLAB-kod}{3}
+\contentsline {section}{\numberline {4}Resultat}{3}
+\contentsline {subsection}{\numberline {4.1}Noggranhetsordning}{3}
+\contentsline {subsection}{\numberline {4.2}Aritmetisk komplexitet}{4}
+\contentsline {section}{\numberline {5}Diskussion}{4}
+\contentsline {section}{\numberline {A}MATLAB-kod f\IeC {\"o}r ber\IeC {\"a}kning av fel och aritmetisk komplexitet}{5}
