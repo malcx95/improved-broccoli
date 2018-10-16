@@ -7,13 +7,19 @@ calculate_errors(@(x) 4./(1+x.^2), pi, 'atan', 0, 1);
 calculate_errors(@(x) sqrt(x), 2/3, 'sqrt', 0, 1);
 calculate_errors(@(x) sin(x).^2, pi/2, 'periodic', 0, pi);
 
+[diff, result] = calculate_errors(@(x) sqrt(x), 2/3, 'sqrt', 0, 1);
+
+fprintf('\n\n\n');
+
+fprintf('%d\n', result)
+
 fprintf('\n\n\n');
 
 arithmetic_complexity(@(x) exp(x), 'exp', 0, 1);
 arithmetic_complexity(@(x) x.^2 + 2.*x + 1, '2-degree', 0, 1);
 arithmetic_complexity(@(x) 4./(1+x.^2), 'atan', 0, 1);
 
-function difference = calculate_errors(fun, expected, msg, start_x, end_x)
+function [difference, errors] = calculate_errors(fun, expected, msg, start_x, end_x)
     errors = [];
     result = [];
     for step_amount = [1:5]
