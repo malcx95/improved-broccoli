@@ -27,7 +27,7 @@ for cell = funcs
 
     ps = [];
     for i = range
-        p = (log(errs(i))/log(errs(i + 1)));
+        p = (log(errs(i + 1))/log(errs(i)));
         ps = [ps p];
     end
 
