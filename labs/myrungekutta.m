@@ -14,7 +14,7 @@ while x < xn-h/2  % avbryter vid rätt xn, (avrundat x kan ligga strax under xn)
     % y=y+h*f(x,y);
     y = y + 1/6 * (k1 + 2*k2 + 2*k3 + k4);
     x=x+h;
-    plot(x,y,'*')
-    disp([x y'])
+    % plot(x,y,'*')
+    % disp([x y'])
 end
 hold off
