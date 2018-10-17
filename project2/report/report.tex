@@ -75,19 +75,21 @@ $C \geq 0$.
         \frac{|x_{k+1} - x^*|}{C} \leq |x_{k} - x^*|^p \Leftrightarrow \\
         \log\big(\frac{|x_{k+1} - x^*|}{C} \big) \leq
             p \cdot \log\big(|x_{k} - x^*|\big) \Leftrightarrow \\
-        \frac{\log(\frac{|x_{k} - x^*|}{C})}
-            {\log(|x_{k+1} - x^*|)} \leq p \Leftrightarrow \\
-        \approx \frac{\log(\frac{|x_{k} - x^*|}{C})}
-            {\log(|x_{k+1} - x^*|)}
+        \frac{\log(\frac{|x_{k+1} - x^*|}{C})}
+            {\log(|x_{k} - x^*|)}
+        \approx \frac{\log(|x_{k+1} - x^*|)}
+            {\log(|x_{k} - x^*|)} \leq p \\
     \end{gathered}
     \label{eq:order_of_convergence}
 \end{equation}
 
 $|x_n - x^*|$ bestämdes med ``metodoberoende feluppskattning'' enligt 
-ekvation~\ref{eq:approx_error}.
+ekvation~\ref{eq:approx_error} där $\xi$ ska ligga mellan $x_n och x^*$. Eftersom
+att de funktioner vi testar har en känd derivata används $\xi = x_n$
 
 \begin{equation}
-    |x_n - x^*| = \frac{|f(x_n)|}{|f'(x_n)}
+    |x_n - x^*| = \frac{|f(x_n)|}{|f'(\xi)} = \frac{|f(x_n)|}{|f'(x_n)}
+    \label{eq:approx_error}
 \end{equation}
 
 
@@ -101,9 +103,14 @@ och $\sin(x)$.
 
 \section{MATLAB-kod}
 
-
+\lstinputlisting{../sekant.m}
 
 \section{Resultat}
+
+I Tabell~\ref{tab:roots} ges approximationerna av rötterna till de olika
+funktionerna som analyserats. I Tabell~\ref{tab:ps} ges en approximation av 
+konvergensordningen mellan varje iteration beräknad enligt ekvation~\ref{eq:order_of_convergence}
+
 
 
 \begin{table}[h]
@@ -119,7 +126,7 @@ och $\sin(x)$.
         6 & 1.414213562373095 & --                                      & --                                & -1.000000000000000 \\
         
     \end{tabular}
-    \caption{Den uppskattade roten vid olika iterationer}
+    \caption{Approximation av roten till olika uttryck vid olika antal iterationer}
 \end{table}
 
 \begin{table}[h]
