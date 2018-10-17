@@ -56,7 +56,7 @@ beräkning av rötter för olika funktioner ska också beräknas.
 
 \section{Teori och lösning}
 
-Sekantmetoden beräknar en iterativt uppskattningar $x_n$ av en rot till en
+Sekantmetoden beräknar iterativt uppskattningar $x_n$ av en rot till en
 funktion $f(x)$ enligt
 
 \begin{equation}
@@ -68,7 +68,7 @@ funktion $f(x)$ enligt
         }.
 \end{equation}
 
-Eftersom att både $f(x_n)$ och $f(x_{n-1})$ används i beräkningen av $f(x_{n+1})$ krävs
+Eftersom både $f(x_n)$ och $f(x_{n-1})$ används i beräkningen av $f(x_{n+1})$ krävs
 två startlösningar, $x_0$ respektive $x_1$.
 
 För att bestämma konvergensordningen $p$ används Ekvation~\ref{eq:order_of_convergence}, där
@@ -95,7 +95,7 @@ Ekvation~\ref{eq:approx_error}, där $\xi$ ska ligga mellan $x_n$ och $x^*$. Eft
 att de funktioner vi testar har en känd derivata används $\xi = x_n$
 
 \begin{equation}
-    |x_n - x^*| = \frac{|f(x_n)|}{|f'(\xi)} = \frac{|f(x_n)|}{|f'(x_n)}
+    |x_n - x^*| = \frac{|f(x_n)|}{|f'(\xi)|} = \frac{|f(x_n)|}{|f'(x_n)|}
     \label{eq:approx_error}
 \end{equation}
 
@@ -127,10 +127,6 @@ Parametrarna som användes och de exakta rötterna redovisas i Tabell~\ref{tab:p
 \label{tab:params}
 \end{table}
 
-
-\section{MATLAB-kod}
-
-\lstinputlisting[lang=matlab]{../sekant.m}
 
 \section{Resultat}
 
@@ -175,8 +171,8 @@ opraktiskt att redovisa i en tabell. Om man använder startlösningarna $x_0 = -
 
 \section{Diskussion}
 
-Konvergensordningen för Newton-Raphsons metod är 2 och eftersom att sekantmetoden
-inte använder funktionens derivata är det rimligt att dess konvergensordning är lägre
+Konvergensordningen för Newton-Raphsons metod är 2, och eftersom sekantmetoden
+inte använder den analytiska derivatan är det rimligt att dess konvergensordning är lägre
 än Newton-Raphson. Konvergensordningen 1.6-1.7 som fås vid beräkning av $x^2-2$ och
 $x^3 + 1$ är därför rimlig. Den beräknade konvergensordningen för $x^3 + 1$ vid
 iteration 5 förklaras av att den uppskattade roten har nästintill inget fel i
@@ -200,6 +196,9 @@ approximationen oscilerar runt roten. Det ger en konvergensordning strax över
 
 \section*{Bilagor}
 \appendix
+
+\section{MATLAB-kod för sekantmetoden}
+\lstinputlisting[lang=matlab]{../sekant.m}
 
 \section{MATLAB-kod för beräkning av fel och aritmetisk komplexitet}
 \label{sec:testcode}
