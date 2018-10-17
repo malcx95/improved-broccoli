@@ -55,9 +55,9 @@ funktion $f(x)$ enligt
 
 \begin{equation}
     \label{eq:seq}
-    x_{n+1} = x_{n}
+    x_{n+1} = x_{n} -
     \frac{f(x_n)}
-        {\frac{f(x_n) - f(x_{n_1})}
+        {\frac{f(x_n) - f(x_{n-1})}
                 {x_n - x_{n-1}}
         }.
 \end{equation}
@@ -169,7 +169,20 @@ opraktiskt att redovisa i en tabell. Om man använder startlösningarna $x_0 = -
 
 \section{Diskussion}
 
+Konvergensordningen för Newton-Raphsons metod är 2 och eftersom att sekantmetoden
+inte använder funktionens derivata är det rimligt att dess konvergensordning är lägre
+än Newton-Raphson. Konvergensordningen $1.6$ som fås vid beräkning av $x^2-2$ är
+därför rimlig.
 
+Sekantmetoden konvergerar väldigt långsamt för funktioner med dubbelrötter eftersom
+att derivatan där är 0. Detta leder till att
+
+\[
+    \lim_{n \to \inf} f(x_n) - f(x_{n+1}) = 0
+\]
+
+vilket gör att hoppen mellan varje iteration kommer att vara väldigt stora och att
+approximationen oscilerar runt roten.
 
 \section*{Bilagor}
 \appendix
