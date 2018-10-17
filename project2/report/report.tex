@@ -96,19 +96,21 @@ $C \geq 0$.
         \frac{|x_{k+1} - x^*|}{C} \leq |x_{k} - x^*|^p \Leftrightarrow \\
         \log\big(\frac{|x_{k+1} - x^*|}{C} \big) \leq
             p \cdot \log\big(|x_{k} - x^*|\big) \Leftrightarrow \\
-        \frac{\log(\frac{|x_{k} - x^*|}{C})}
-            {\log(|x_{k+1} - x^*|)} \leq p \Leftrightarrow \\
-        \approx \frac{\log(\frac{|x_{k} - x^*|}{C})}
-            {\log(|x_{k+1} - x^*|)}
+        \frac{\log(\frac{|x_{k+1} - x^*|}{C})}
+            {\log(|x_{k} - x^*|)}
+        \approx \frac{\log(|x_{k+1} - x^*|)}
+            {\log(|x_{k} - x^*|)} \leq p \\
     \end{gathered}
     \label{eq:order_of_convergence}
 \end{equation}
 
 $|x_n - x^*|$ bestämdes med ``metodoberoende feluppskattning'' enligt 
-ekvation~\ref{eq:approx_error}.
+ekvation~\ref{eq:approx_error} där $\xi$ ska ligga mellan $x_n och x^*$. Eftersom
+att de funktioner vi testar har en känd derivata används $\xi = x_n$
 
 \begin{equation}
-    |x_n - x^*| = \frac{|f(x_n)|}{|f'(x_n)}
+    |x_n - x^*| = \frac{|f(x_n)|}{|f'(\xi)} = \frac{|f(x_n)|}{|f'(x_n)}
+    \label{eq:approx_error}
 \end{equation}
 
 
