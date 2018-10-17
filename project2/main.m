@@ -20,7 +20,7 @@ for cell = funcs
     text = c{5};
     correct = c{6};
     
-    [root, sols] = sekant(f, fp, x0, x1, 1e-10);
+    [root, sols] = sekant(f, fp, x0, x1, 1e-15);
 
     errs = abs(sols - correct);
     range = 1:(length(errs)-1);
@@ -31,6 +31,7 @@ for cell = funcs
         ps = [ps p];
     end
 
+    sols
     fprintf(text);
     fprintf(': Root: %d. p = ', root);
     fprintf('%d, ', ps);
