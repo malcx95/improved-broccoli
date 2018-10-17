@@ -42,10 +42,11 @@
 
 \section{Introduktion}
 
-Även om en analyskurs på unversitetet får det att verka som att man kan hitta rötter
+Även om en analyskurs på universitetet får det att verka som att man kan hitta rötter
 och derivator till alla möjliga funktioner är så inte fallet, ibland är funktionerna
-mer komplexa än vad våra verktyg klarar av. Då måste man istället använda analytiska metoder
-för att hitta rötter, och sekantmetoden som beskrivs i denna rapport är en sådan metod.
+mer komplexa än vad våra verktyg klarar av. Då måste man istället använda
+numeriska metoder för att hitta rötter. Sekantmetoden, som beskrivs i denna
+rapport, är en sådan metod.
 
 \subsection{Uppgift}
 
@@ -176,21 +177,26 @@ opraktiskt att redovisa i en tabell. Om man använder startlösningarna $x_0 = -
 
 Konvergensordningen för Newton-Raphsons metod är 2 och eftersom att sekantmetoden
 inte använder funktionens derivata är det rimligt att dess konvergensordning är lägre
-än Newton-Raphson. Konvergensordningen $1.6$ som fås vid beräkning av $x^2-2$ och
-$x^3 + 1$ är därför rimlig.
+än Newton-Raphson. Konvergensordningen 1.6-1.7 som fås vid beräkning av $x^2-2$ och
+$x^3 + 1$ är därför rimlig. Den beräknade konvergensordningen för $x^3 + 1$ vid
+iteration 5 förklaras av att den uppskattade roten har nästintill inget fel i
+iteration 6.
 
-$\sin$ och $\tan$ har högre och mer sporadisk konvergensordning och vi är osäkra på varför
-det är fallet.
+De trigonometriska funktionerna har högre och mer sporadisk konvergensordning,
+något som vi är osäkra på varför. En möjlig förklaring är att derivatan här är
+lägre än för $x^2-2$ och $x^3 + 1$, men vidare undersökning krävs för att
+verifiera detta.
 
-Sekantmetoden konvergerar väldigt långsamt för funktioner med dubbelrötter eftersom
-att derivatan där är 0. Detta leder till att
+Sekantmetoden konvergerar väldigt långsamt för $x^2$, eftersom den har en
+dubbelrot. Detta betyder att derivatan vid roten är 0, vilket leder till
 
 \[
-    \lim_{n \to \inf} f(x_n) - f(x_{n+1}) = 0
+    \lim_{n \to \infty} f(x_n) - f(x_{n+1}) = 0,
 \]
 
 vilket gör att hoppen mellan varje iteration kommer att vara väldigt stora och att
-approximationen oscilerar runt roten.
+approximationen oscilerar runt roten. Det ger en konvergensordning strax över
+1, vilket gör att denna metod inte lämpar sig för uppskattning av dubbelrötter.
 
 \section*{Bilagor}
 \appendix
