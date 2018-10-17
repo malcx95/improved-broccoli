@@ -52,7 +52,7 @@ rapport, är en sådan metod.
 
 Syftet med denna undersökning är att implementera och utvärdera sekantmetoden
 för lösning av ickelinjära ekvationer. Konvergensordningen av metoden vid
-beräkning av rötter för olika funktioner ska beräknas.
+beräkning av rötter för olika funktioner ska också beräknas.
 
 \section{Teori och lösning}
 
@@ -82,10 +82,10 @@ $p$ med konstant faktor.
         \frac{|x_{k+1} - x^*|}{C} \leq |x_{k} - x^*|^p \Leftrightarrow \\
         \log\big(\frac{|x_{k+1} - x^*|}{C} \big) \leq
             p \cdot \log\big(|x_{k} - x^*|\big) \Leftrightarrow \\
-        \frac{\log(\frac{|x_{k+1} - x^*|}{C})}
+        p \geq \frac{\log(\frac{|x_{k+1} - x^*|}{C})}
             {\log(|x_{k} - x^*|)}
         \approx \frac{\log(|x_{k+1} - x^*|)}
-            {\log(|x_{k} - x^*|)} \leq p \\
+            {\log(|x_{k} - x^*|)}\\
     \end{gathered}
     \label{eq:order_of_convergence}
 \end{equation}
