@@ -103,7 +103,7 @@ och $\sin(x)$.
 
 \section{MATLAB-kod}
 
-\lstinputlisting{../sekant.m}
+\lstinputlisting[lang=matlab]{../sekant.m}
 
 \section{Resultat}
 
@@ -148,8 +148,11 @@ konvergensordningen mellan varje iteration beräknad enligt ekvation~\ref{eq:ord
 
 Konvergensordningen för Newton-Raphsons metod är 2 och eftersom att sekantmetoden
 inte använder funktionens derivata är det rimligt att dess konvergensordning är lägre
-än Newton-Raphson. Konvergensordningen $1.6$ som fås vid beräkning av $x^2-2$ är
-därför rimlig.
+än Newton-Raphson. Konvergensordningen $1.6$ som fås vid beräkning av $x^2-2$ och
+$x^3 + 1$ är därför rimlig.
+
+$\sin$ och $\tan$ har högre och mer sporadisk konvergensordning och vi är osäkra på varför
+det är fallet.
 
 Sekantmetoden konvergerar väldigt långsamt för funktioner med dubbelrötter eftersom
 att derivatan där är 0. Detta leder till att
@@ -166,4 +169,6 @@ approximationen oscilerar runt roten.
 
 \section{MATLAB-kod för beräkning av fel och aritmetisk komplexitet}
 \label{sec:testcode}
+
+\lstinputlisting{../main.m}
 \end{document}
