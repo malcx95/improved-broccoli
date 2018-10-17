@@ -2,7 +2,7 @@ second_deg = @(x) x^2 - 2;
 second_deg_der = @(x) 2*x;
 
 tan_f = @(x) tan(x);
-tan_f_der = @(x) 1/(1 + x^2);
+tan_f_der = @(x) 1/(cos(x)^2);
 
 sin_f = @(x) sin(x);
 sin_f_der = @(x) cos(x);
@@ -17,7 +17,7 @@ funcs = {{second_deg, second_deg_der, 1, 2, 'x^2 - 2', sqrt(2)},...
         {tan_f, tan_f_der, -0.3, 0.5, 'tan(x)', 0},...
         {sin_f, sin_f_der, -0.4, 0.5, 'sin(x)', 0},...
         {third_deg, third_deg_der, -1.1, -0.9, 'x^3 + 1', -1},...
-        {double_r, double_r_der, -1e-10, 1e-11, 'x^2', 0}};
+        {double_r, double_r_der, -0.1, 0.05, 'x^2', 0}};
 
 for cell = funcs
     c = cell{1};

@@ -21,8 +21,8 @@
 	%\LARGE
 %	\includegraphics[width=6cm]{python.png}\\[\bigskipamount]
 %}
-\title{
-    \textbf{Projekt 1 i Beräkningsmatematik -- Integration }}
+\title{%
+    \textbf{Projekt 2 i Beräkningsmatematik -- Icke-linjära ekvationer }}
 \date{\today}
 \author{%
     Malcolm Vigren \\
@@ -48,10 +48,10 @@ Syftet med denna undersökningen är att implementera och utvärdera sekantmetod
 för lösning av ickelinjära ekvationer.
 
 
-\section{Teori}
+\section{Teori och lösning}
 
 Sekantmetoden beräknar en iterativt uppskattningar $x_n$ av en rot till en
-funktion $f(x)$ enligt ekvation~\ref{eq:seq}
+funktion $f(x)$ enligt
 
 \begin{equation}
     \label{eq:seq}
@@ -59,15 +59,16 @@ funktion $f(x)$ enligt ekvation~\ref{eq:seq}
     \frac{f(x_n)}
         {\frac{f(x_n) - f(x_{n_1})}
                 {x_n - x_{n-1}}
-        }
+        }.
 \end{equation}
 
 Eftersom att både $f(x_n)$ och $f(x_{n-1})$ används i beräkningen av $f(x_{n+1})$ krävs
-två stycken initiala gissningar.
+två startlösningar, $x_0$ respektive $x_1$.
 
-
-För att bestämma konvergensordningen $p$ används Ekvation~\ref{eq:order_of_convergence} där
-$C \geq 0$.
+För att bestämma konvergensordningen $p$ används Ekvation~\ref{eq:order_of_convergence}, där
+$C \geq 0$ och $x^*$ betecknar den exakta roten, då felet i skattning $x_{k+1}$ 
+från den exakta roten antas vara mindre än felet i skattning $x_{k}$ upphöjt till
+$p$ med konstant faktor.
 
 \begin{equation}
     \begin{gathered}
@@ -83,8 +84,8 @@ $C \geq 0$.
     \label{eq:order_of_convergence}
 \end{equation}
 
-$|x_n - x^*|$ bestämdes med ``metodoberoende feluppskattning'' enligt 
-ekvation~\ref{eq:approx_error} där $\xi$ ska ligga mellan $x_n och x^*$. Eftersom
+$|x_n - x^*|$ bestämdes med \textit{metodoberoende feluppskattning} enligt 
+Ekvation~\ref{eq:approx_error}, där $\xi$ ska ligga mellan $x_n$ och $x^*$. Eftersom
 att de funktioner vi testar har en känd derivata används $\xi = x_n$
 
 \begin{equation}
@@ -93,12 +94,32 @@ att de funktioner vi testar har en känd derivata används $\xi = x_n$
 \end{equation}
 
 
-För att beräkna ett värde på $p$ beräknades rötterna av funktionerna $x^2$, $\tan(x)$
-och $\sin(x)$.
+\subsection{Beräkningar}
 
+Testerna kördes på följande funktioner:
 
+\begin{itemize}
+    \item $x^2 - 2$
+    \item tan(x)
+    \item sin(x)
+    \item $x^3 + 1$
+    \item $x^2$
+\end{itemize}
 
-\subsection{Lösning}
+Parametrarna som användes och de exakta rötterna redovisas i Tabell~\ref{tab:params}.
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{c | c | c | c | c | c}
+        \textbf{Parameter}  & $\mathbf{x^2 - 2}$    & \textbf{tan(x)}   & \textbf{sin(x)}   & $\mathbf{x^3 + 1}$ & $\mathbf{x^2}$ \\ \hline
+        $x_0$               & 1                     & -0.3                & -0.4                   & -1.1 & -0.1 \\
+        $x_1$               & 2                     & 0.5                 & 0.5                  & -0.9 & 0.5 \\
+        Exakt rot           & $\sqrt{2} $           & 0                  & 0                  & -1 & 0 \\
+        
+    \end{tabular}
+    \caption{De parametrar som användes i beräkningarna}
+\label{tab:params}
+\end{table}
 
 
 \section{MATLAB-kod}
@@ -109,31 +130,32 @@ och $\sin(x)$.
 
 I Tabell~\ref{tab:roots} ges approximationerna av rötterna till de olika
 funktionerna som analyserats. I Tabell~\ref{tab:ps} ges en approximation av 
-konvergensordningen mellan varje iteration beräknad enligt ekvation~\ref{eq:order_of_convergence}
+konvergensordningen mellan varje iteration beräknad enligt
+Ekvation~\ref{eq:order_of_convergence}.
 
-
+Funktionen $x^2$ med dubbelroten $x=0$ kördes också, men konvergerade så långsamt att det är 
+opraktiskt att redovisa i en tabell. Om man använder startlösningarna $x_0 = -0.1$ och $x_1 = 0.05$ avslutade den efter 66 iterationer, med slutlösningen $1.609962437506356\cdot10^{-15}$. Konvergensordningen $p$ blev ungefär 1.014330.
 
 \begin{table}[h]
     \centering
-    \label{tab:roots}
     \begin{tabular}{c | c | c | c | c}
-        \textbf{Iteration} & $\mathbf{x^2 - 2}$ & \textbf{tan(x)} & \textbf{sin(x)} & $\mathbf{x^3 + 1}$ \\ \hline
+        \textbf{n} & $\mathbf{x^2 - 2}$ & \textbf{tan(x)} & \textbf{sin(x)} & $\mathbf{x^3 + 1}$ \\ \hline
         1 & 1.333333333333333 & -1.077864024040920$\cdot10^{-2}$        &  3.382605065430477$\cdot10^{-3}$  & -0.990033222591362 \\
         2 & 1.400000000000000 & -8.955047317953449$\cdot10^{-4}$        & -1.461886022731283$\cdot10^{-4}$  & -1.001074308675966 \\
         3 & 1.414634146341463 & -3.756104606641650$\cdot10^{-8}$        &  2.667340781299481$\cdot10^{-10}$ & -0.999989228883491 \\
         4 & 1.414211438474870 & -1.004084892145777$\cdot10^{-14}$       & -9.500653752817749$\cdot10^{-19}$ & -0.999999988436696 \\
         5 & 1.414213562057320 & -4.733165431326071$\cdot10^{-30}$       & --                                & -1.000000000000125 \\
-        6 & 1.414213562373095 & --                                      & --                                & -1.000000000000000 \\
+        6 & 1.414213562373095 & --                                      & -- & -1.000000000000000 \\
         
     \end{tabular}
     \caption{Approximation av roten till olika uttryck vid olika antal iterationer}
+\label{tab:roots}
 \end{table}
 
 \begin{table}[h]
     \centering
-    \label{tab:ps}
     \begin{tabular}{c | c | c | c | c}
-        \textbf{Iteration} & $\mathbf{x^2 - 2}$ & \textbf{tan(x)} & \textbf{sin(x)} & $\mathbf{x^3 + 1}$ \\ \hline
+        \textbf{n} & $\mathbf{x^2 - 2}$ & \textbf{tan(x)} & \textbf{sin(x)} & $\mathbf{x^3 + 1}$ \\ \hline
         1 & 1.691420 & 1.549190 & 1.552196 & 1.483364 \\
         2 & 1.827615 & 2.436164 & 2.496403 & 1.673276 \\
         3 & 1.680278 & 1.885217 & 1.882431 & 1.597692 \\
@@ -141,7 +163,8 @@ konvergensordningen mellan varje iteration beräknad enligt ekvation~\ref{eq:ord
         5 & 1.647635 & --       & --       & Inf \\
         
     \end{tabular}
-    \caption{$\log(|x_{n + 1} - x^*|)/\log(|x_n - x^*|)$ vid olika iterationer}
+    \label{tab:ps}
+    \caption{$p \approx \log(|x_{n + 1} - x^*|)/\log(|x_n - x^*|)$ vid olika iterationer}
 \end{table}
 
 \section{Diskussion}
