@@ -137,16 +137,31 @@ funktionerna som analyserats.
     \centering
     \label{tab:roots}
     \begin{tabular}{c | c | c | c}
-        \textbf{n} & $\mathbf{x^2 - 2}$ & \textbf{tan(x)} & \textbf{sin(x)} \\ \hline
-        1 & 1.333333333333333 & -1.077864024040920$\cdot10^2$ &  \\
-        2 & 1.333333333333333 & -8.955047317953449$\cdot10^4$ &  \\
-        3 & 1.414634146341463 & -3.756104606641650$\cdot10^8$ &  \\
-        4 & 1.414211438474870 & -1.004084892145777$\cdot10^{14}$ &  \\
-        5 & 1.414213562057320 & -4.733165431326071$\cdot10^{30}$ &  \\
-        6 & 1.414213562373095 & -- &  \\
+        \textbf{Iteration} & $\mathbf{x^2 - 2}$ & \textbf{tan(x)} & \textbf{sin(x)} \\ \hline
+        1 & 1.333333333333333 & -1.077864024040920$\cdot10^{-2}$       &  3.382605065430477$\cdot10^{-3}$ \\
+        2 & 1.400000000000000 & -8.955047317953449$\cdot10^{-4}$       & -1.461886022731283$\cdot10^{-4}$ \\
+        3 & 1.414634146341463 & -3.756104606641650$\cdot10^{-8}$       &  2.667340781299481$\cdot10^{-10}$ \\
+        4 & 1.414211438474870 & -1.004084892145777$\cdot10^{-14}$    & -9.500653752817749$\cdot10^{-19}$ \\
+        5 & 1.414213562057320 & -4.733165431326071$\cdot10^{-30}$    & -- \\
+        6 & 1.414213562373095 & -- & -- \\
         
     \end{tabular}
-    \caption{caption}
+    \caption{Den uppskattade roten vid olika iterationer}
+\end{table}
+
+\begin{table}[h]
+    \centering
+    \label{tab:ps}
+    \begin{tabular}{c | c | c | c}
+        \textbf{Iteration} & $\mathbf{x^2 - 2}$ & \textbf{tan(x)} & \textbf{sin(x)} \\ \hline
+        1 & 1.691420 & 1.549190 & 1.552196 \\
+        2 & 1.827615 & 2.436164 & 2.496403 \\
+        3 & 1.680278 & 1.885217 & 1.882431 \\
+        4 & 1.674748 & 2.094897 & -- \\
+        5 & 1.647635 & --       & -- \\
+        
+    \end{tabular}
+    \caption{$\log(|x_{n + 1} - x^*|)/\log(|x_n - x^*|)$ vid olika iterationer}
 \end{table}
 
 \section{Diskussion}
