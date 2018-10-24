@@ -27,15 +27,15 @@ for cell = funcs
     x1 = c{4};
     text = c{5};
     correct = c{6};
-    
+
     [root, sols] = sekant(f, fp, x0, x1, 1e-15);
 
     errs = abs(sols - correct);
-    range = 1:(length(errs)-1);
+    range = 2:(length(errs)-1);
 
     ps = [];
     for i = range
-        p = (log(errs(i + 1))/log(errs(i)));
+        p = (log(errs(i + 1)/errs(i))/log(errs(i)/errs(i - 1)));
         ps = [ps p];
     end
 

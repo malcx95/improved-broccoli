@@ -16,11 +16,6 @@
 \usepackage{geometry}
 \geometry{margin=3cm}
 \usepackage{parskip} 
-%\pretitle{%	en bild för framsidan
-	%\begin{center}
-	%\LARGE
-%	\includegraphics[width=6cm]{python.png}\\[\bigskipamount]
-%}
 \title{%
     \textbf{Projekt 2 i Beräkningsmatematik -- Icke-linjära ekvationer }}
 \date{\today}
@@ -136,7 +131,9 @@ konvergensordningen mellan varje iteration beräknad enligt
 Ekvation~\ref{eq:order_of_convergence}.
 
 Funktionen $x^2$ med dubbelroten $x=0$ kördes också, men konvergerade så långsamt att det är 
-opraktiskt att redovisa i en tabell. Om man använder startlösningarna $x_0 = -0.1$ och $x_1 = 0.05$ avslutade den efter 66 iterationer, med slutlösningen $1.609962437506356\cdot10^{-15}$. Konvergensordningen $p$ blev ungefär 1.014330.
+opraktiskt att redovisa i en tabell. Om man använder startlösningarna $x_0 =
+-0.1$ och $x_1 = 0.05$ avslutade den efter 66 iterationer, med slutlösningen
+$1.609962437506356\cdot10^{-15}$. Konvergensordningen $p$ blev 1.0000.
 
 \begin{table}[h]
     \centering
@@ -158,12 +155,11 @@ opraktiskt att redovisa i en tabell. Om man använder startlösningarna $x_0 = -
     \centering
     \begin{tabular}{c | c | c | c | c}
         \textbf{n} & $\mathbf{x^2 - 2}$ & \textbf{tan(x)} & \textbf{sin(x)} & $\mathbf{x^3 + 1}$ \\ \hline
-        1 & 1.691420 & 1.549190 & 1.552196 & 1.483364 \\
-        2 & 1.827615 & 2.436164 & 2.496403 & 1.673276 \\
-        3 & 1.680278 & 1.885217 & 1.882431 & 1.597692 \\
-        4 & 1.674748 & 2.094897 & --       & 1.625895 \\
-        5 & 1.647635 & --       & --       & Inf \\
-        
+        1 & 2.024593 & 4.051223 & 4.206315 & 2.066173 \\
+        2 & 1.502252 & 1.501593 & 1.472132 & 1.485430 \\
+        3 & 1.666619 & 2.331766 & --       & 1.673082 \\
+        4 & 1.607453 & --       & --       & \infty
+
     \end{tabular}
     \label{tab:ps}
     \caption{$p \approx \log(|x_{n + 1} - x^*|)/\log(|x_n - x^*|)$ vid olika iterationer}
@@ -191,7 +187,7 @@ dubbelrot. Detta betyder att derivatan vid roten är 0, vilket leder till
 \]
 
 vilket gör att hoppen mellan varje iteration kommer att vara väldigt stora och att
-approximationen oscilerar runt roten. Det ger en konvergensordning strax över
+approximationen oscilerar runt roten. Det ger en konvergensordning på
 1, vilket gör att denna metod inte lämpar sig för uppskattning av dubbelrötter.
 
 \section*{Bilagor}
