@@ -78,14 +78,12 @@ $p$ med konstant faktor.
 
 \begin{equation}
     \begin{gathered}
-        |x_{k+1} - x^*| \leq C |x_k - x^*|^p \Leftrightarrow \\
-        \frac{|x_{k+1} - x^*|}{C} \leq |x_{k} - x^*|^p \Leftrightarrow \\
-        \log\big(\frac{|x_{k+1} - x^*|}{C} \big) \leq
-            p \cdot \log\big(|x_{k} - x^*|\big) \Leftrightarrow \\
-        p \geq \frac{\log(\frac{|x_{k+1} - x^*|}{C})}
-            {\log(|x_{k} - x^*|)}
-        \approx \frac{\log(|x_{k+1} - x^*|)}
-            {\log(|x_{k} - x^*|)}\\
+        |x_{i+1} - x^*| \approx C |x_i - x^*|^p \\
+        |x_i - x^*| \approx C |x_{i-1} - x^*|^p \Leftrightarrow \\
+        \frac{|x_{i+1} - x^*|}{|x_i - x^*|} \approx
+                (\frac{|x_i - x^*|}{|x_{i-1} - x^*|})^p \Leftrightarrow \\
+
+        p \approx \frac{log(\frac{|x_{i+1} - x^*|}{|x_i - x^*|)}}{log(\frac{|x_i - x^*|}{|x_{i-1} - x^*|})}
     \end{gathered}
     \label{eq:order_of_convergence}
 \end{equation}
